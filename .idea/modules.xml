@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Enums/Enums.iml" filepath="$PROJECT_DIR$/Enums/Enums.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExamplesDUGL.iml" filepath="$PROJECT_DIR$/ExamplesDUGL.iml" />
+    </modules>
+  </component>
+</project>
+
