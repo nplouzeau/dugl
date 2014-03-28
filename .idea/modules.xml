@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Enums/Enums.iml" filepath="$PROJECT_DIR$/Enums/Enums.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExamplesDUGL.iml" filepath="$PROJECT_DIR$/ExamplesDUGL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Obs1/Obs1.iml" filepath="$PROJECT_DIR$/Obs1/Obs1.iml" />
     </modules>
   </component>
 </project>
