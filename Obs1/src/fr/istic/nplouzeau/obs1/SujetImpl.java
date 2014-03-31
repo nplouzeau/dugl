@@ -13,7 +13,7 @@ public class SujetImpl<T> implements Sujet<T> {
 	private T valeur;
 
 	public SujetImpl() {
-		abonnés = new ArrayList<Observateur<T>>();
+		abonnés = new ArrayList<>();
 	}
 
 	/**
@@ -57,18 +57,33 @@ public class SujetImpl<T> implements Sujet<T> {
 	}
 
 	/**
+	 * Indique si un observateur est abonné au sujet this
+	 *
+	 * @param o l'observateur à tester
+	 * @return true ssi o est déjà abonné
+	 * @throws IllegalArgumentException si o est null
+	 */
+	@Override
+	public boolean estAbonné(Observateur<T> o) {
+		if (o == null) {
+			throw new IllegalArgumentException("o est null");
+		}
+		return abonnés.contains(o);
+	}
+
+	/**
 	 * Change la valeur du sujet
 	 *
 	 * @param v la nouvelle valeur du sujet
 	 */
 	@Override
 	public void setValeur(T v) {
-		 valeur = v;
-		 notifierAbonnés();
+		valeur = v;
+		notifierAbonnés();
 	}
 
 	private void notifierAbonnés() {
-		for(Observateur<T> o : abonnés) {
+		for (Observateur<T> o : abonnés) {
 			o.faireMiseAJour(this);
 		}
 	}

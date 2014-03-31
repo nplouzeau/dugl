@@ -5,6 +5,8 @@
  */
 package fr.istic.nplouzeau.obs1;
 
+import java.lang.IllegalArgumentException;
+
 public interface Sujet<T> {
 	/**
 	 * Ajoute un observateur o, à condition que o ne soit pas déjà abonné à this
@@ -30,6 +32,15 @@ public interface Sujet<T> {
 	 * @return valeur du sujet
 	 */
 	T getValeur();
+
+	/**
+	 * Indique si un observateur est abonné au sujet this
+	 *
+	 * @param o l'observateur à tester
+	 * @return true ssi o est déjà abonné
+	 * @throws IllegalArgumentException si o est null
+	 */
+	boolean estAbonné(Observateur<T> o);
 
 	/**
 	 * Change la valeur du sujet
