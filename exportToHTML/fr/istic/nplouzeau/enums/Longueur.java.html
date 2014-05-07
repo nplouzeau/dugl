@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Longueur.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Longueur.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">fr.istic.nplouzeau.enums; 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s2">/** 
+<a name="l4"><span class="ln">4    </span></a> * Author: plouzeau 
+<a name="l5"><span class="ln">5    </span></a> * Date: 2014-03-21 
+<a name="l6"><span class="ln">6    </span></a> * Time: 14:50 
+<a name="l7"><span class="ln">7    </span></a> */</span><span class="s1"> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">public interface </span><span class="s1">Longueur { 
+<a name="l9"><span class="ln">9    </span></a> 
+<a name="l10"><span class="ln">10   </span></a>    </span><span class="s2">/** 
+<a name="l11"><span class="ln">11   </span></a>     * Retourne la valeur de la longueur dans une unité de longueur 
+<a name="l12"><span class="ln">12   </span></a>     * 
+<a name="l13"><span class="ln">13   </span></a>     * </span><span class="s3">@param </span><span class="s2">u l'unité du résultat 
+<a name="l14"><span class="ln">14   </span></a>     * </span><span class="s3">@return </span><span class="s2">la valeur numérique de la longueur dans l'unité u 
+<a name="l15"><span class="ln">15   </span></a>     */</span><span class="s1"> 
+<a name="l16"><span class="ln">16   </span></a>    </span><span class="s0">public double </span><span class="s1">getValeurNumérique(<a href="UnitéLongueur.java.html">UnitéLongueur</a> u); 
+<a name="l17"><span class="ln">17   </span></a> 
+<a name="l18"><span class="ln">18   </span></a>    </span><span class="s2">/** 
+<a name="l19"><span class="ln">19   </span></a>     * Crée une nouvelle longueur correspondant à la somme de this et de l 
+<a name="l20"><span class="ln">20   </span></a>     * </span><span class="s3">@param </span><span class="s2">l      longueur à ajouter à this 
+<a name="l21"><span class="ln">21   </span></a>     * </span><span class="s3">@return       </span><span class="s2">nouvelle longueur correspond à la somme de this et l 
+<a name="l22"><span class="ln">22   </span></a>     */</span><span class="s1"> 
+<a name="l23"><span class="ln">23   </span></a>    </span><span class="s0">public </span><span class="s1">Longueur ajouter(Longueur l); 
+<a name="l24"><span class="ln">24   </span></a> 
+<a name="l25"><span class="ln">25   </span></a>} 
+<a name="l26"><span class="ln">26   </span></a></span></pre>
+</body>
+</html>

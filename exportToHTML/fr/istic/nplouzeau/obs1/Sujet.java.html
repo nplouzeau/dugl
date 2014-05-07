@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Sujet.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Sujet.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">/** 
+<a name="l2"><span class="ln">2    </span></a> * Author: plouzeau 
+<a name="l3"><span class="ln">3    </span></a> * Date: 2014-03-28 
+<a name="l4"><span class="ln">4    </span></a> * Time: 17:14 
+<a name="l5"><span class="ln">5    </span></a> */</span><span class="s1"> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s2">package </span><span class="s1">fr.istic.nplouzeau.obs1; 
+<a name="l7"><span class="ln">7    </span></a> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s2">import </span><span class="s1">java.lang.IllegalArgumentException; 
+<a name="l9"><span class="ln">9    </span></a> 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s2">public interface </span><span class="s1">Sujet&lt;T&gt; { 
+<a name="l11"><span class="ln">11   </span></a>    </span><span class="s0">/** 
+<a name="l12"><span class="ln">12   </span></a>     * Ajoute un observateur o, à condition que o ne soit pas déjà abonné à this 
+<a name="l13"><span class="ln">13   </span></a>     * 
+<a name="l14"><span class="ln">14   </span></a>     * </span><span class="s3">@param </span><span class="s0">o L'observateur à ajouter 
+<a name="l15"><span class="ln">15   </span></a>     * </span><span class="s3">@throws </span><span class="s0">IllegalArgumentException si o est null ou o est déjà abonné à this 
+<a name="l16"><span class="ln">16   </span></a>     */</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a>    </span><span class="s2">void </span><span class="s1">abonner(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o) </span><span class="s2">throws </span><span class="s1">IllegalArgumentException; 
+<a name="l18"><span class="ln">18   </span></a> 
+<a name="l19"><span class="ln">19   </span></a>    </span><span class="s0">/** 
+<a name="l20"><span class="ln">20   </span></a>     * Retire un observateur o de la liste des abonnés à this, 
+<a name="l21"><span class="ln">21   </span></a>     * à condition que 
+<a name="l22"><span class="ln">22   </span></a>     * o soit abonné 
+<a name="l23"><span class="ln">23   </span></a>     * 
+<a name="l24"><span class="ln">24   </span></a>     * </span><span class="s3">@param </span><span class="s0">o L'observateur à retirer 
+<a name="l25"><span class="ln">25   </span></a>     * </span><span class="s3">@throws </span><span class="s0">IllegalArgumentException si o est null ou o n'est pas abonné à this 
+<a name="l26"><span class="ln">26   </span></a>     */</span><span class="s1"> 
+<a name="l27"><span class="ln">27   </span></a>    </span><span class="s2">void </span><span class="s1">désabonner(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o) </span><span class="s2">throws </span><span class="s1">IllegalArgumentException; 
+<a name="l28"><span class="ln">28   </span></a> 
+<a name="l29"><span class="ln">29   </span></a>    </span><span class="s0">/** 
+<a name="l30"><span class="ln">30   </span></a>     * Lit la valeur du sujet 
+<a name="l31"><span class="ln">31   </span></a>     * 
+<a name="l32"><span class="ln">32   </span></a>     * </span><span class="s3">@return </span><span class="s0">valeur du sujet 
+<a name="l33"><span class="ln">33   </span></a>     */</span><span class="s1"> 
+<a name="l34"><span class="ln">34   </span></a>    T getValeur(); 
+<a name="l35"><span class="ln">35   </span></a> 
+<a name="l36"><span class="ln">36   </span></a>    </span><span class="s0">/** 
+<a name="l37"><span class="ln">37   </span></a>     * Indique si un observateur est abonné au sujet this 
+<a name="l38"><span class="ln">38   </span></a>     * 
+<a name="l39"><span class="ln">39   </span></a>     * </span><span class="s3">@param </span><span class="s0">o l'observateur à tester 
+<a name="l40"><span class="ln">40   </span></a>     * </span><span class="s3">@return </span><span class="s0">true ssi o est déjà abonné 
+<a name="l41"><span class="ln">41   </span></a>     * </span><span class="s3">@throws </span><span class="s0">IllegalArgumentException si o est null 
+<a name="l42"><span class="ln">42   </span></a>     */</span><span class="s1"> 
+<a name="l43"><span class="ln">43   </span></a>    </span><span class="s2">boolean </span><span class="s1">estAbonné(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o); 
+<a name="l44"><span class="ln">44   </span></a> 
+<a name="l45"><span class="ln">45   </span></a>    </span><span class="s0">/** 
+<a name="l46"><span class="ln">46   </span></a>     * Change la valeur du sujet 
+<a name="l47"><span class="ln">47   </span></a>     * 
+<a name="l48"><span class="ln">48   </span></a>     * </span><span class="s3">@param </span><span class="s0">v la nouvelle valeur du sujet 
+<a name="l49"><span class="ln">49   </span></a>     */</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a>    </span><span class="s2">void </span><span class="s1">setValeur(T v); 
+<a name="l51"><span class="ln">51   </span></a> 
+<a name="l52"><span class="ln">52   </span></a>} 
+<a name="l53"><span class="ln">53   </span></a></span></pre>
+</body>
+</html>

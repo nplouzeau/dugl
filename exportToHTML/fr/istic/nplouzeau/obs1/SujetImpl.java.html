@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>SujetImpl.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+SujetImpl.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">fr.istic.nplouzeau.obs1; 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">java.util.List; 
+<a name="l5"><span class="ln">5    </span></a> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s2">/** 
+<a name="l7"><span class="ln">7    </span></a> * Author: plouzeau 
+<a name="l8"><span class="ln">8    </span></a> * Date: 2014-03-29 
+<a name="l9"><span class="ln">9    </span></a> * Time: 14:33 
+<a name="l10"><span class="ln">10   </span></a> */</span><span class="s1"> 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">public class </span><span class="s1">SujetImpl&lt;T&gt; </span><span class="s0">implements <a href="Sujet.java.html">Sujet&lt;T&gt;</a> </span><span class="s1">{ 
+<a name="l12"><span class="ln">12   </span></a>    </span><span class="s0">private </span><span class="s1">List&lt;Observateur&lt;T&gt;&gt; abonnés; 
+<a name="l13"><span class="ln">13   </span></a>    </span><span class="s0">private </span><span class="s1">T valeur;<hr> 
+<a name="l14"><span class="ln">14   </span></a> 
+<a name="l15"><span class="ln">15   </span></a>    </span><span class="s0">public </span><span class="s1">SujetImpl() { 
+<a name="l16"><span class="ln">16   </span></a>        abonnés = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;(); 
+<a name="l17"><span class="ln">17   </span></a>    }<hr> 
+<a name="l18"><span class="ln">18   </span></a> 
+<a name="l19"><span class="ln">19   </span></a>    </span><span class="s2">/** 
+<a name="l20"><span class="ln">20   </span></a>     * Ajoute un observateur o, à condition que o ne soit pas déjà abonné à this 
+<a name="l21"><span class="ln">21   </span></a>     * 
+<a name="l22"><span class="ln">22   </span></a>     * </span><span class="s3">@param </span><span class="s2">o L'observateur à ajouter 
+<a name="l23"><span class="ln">23   </span></a>     * </span><span class="s3">@throws </span><span class="s2">IllegalArgumentException si o est null ou o est déjà abonné à this 
+<a name="l24"><span class="ln">24   </span></a>     */</span><span class="s1"> 
+<a name="l25"><span class="ln">25   </span></a>    @Override 
+<a name="l26"><span class="ln">26   </span></a>    </span><span class="s0">public void </span><span class="s1">abonner(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o) </span><span class="s0">throws </span><span class="s1">IllegalArgumentException { 
+<a name="l27"><span class="ln">27   </span></a>        </span><span class="s0">if </span><span class="s1">(abonnés.contains(o)) { 
+<a name="l28"><span class="ln">28   </span></a>            </span><span class="s0">throw new </span><span class="s1">IllegalArgumentException(</span><span class="s4">&quot;o est déjà abonné&quot;</span><span class="s1">); 
+<a name="l29"><span class="ln">29   </span></a>        } 
+<a name="l30"><span class="ln">30   </span></a>        abonnés.add(o); 
+<a name="l31"><span class="ln">31   </span></a>    }<hr> 
+<a name="l32"><span class="ln">32   </span></a> 
+<a name="l33"><span class="ln">33   </span></a>    </span><span class="s2">/** 
+<a name="l34"><span class="ln">34   </span></a>     * Retire un observateur o de la liste des abonnés à this, 
+<a name="l35"><span class="ln">35   </span></a>     * à condition que 
+<a name="l36"><span class="ln">36   </span></a>     * o soit abonné 
+<a name="l37"><span class="ln">37   </span></a>     * 
+<a name="l38"><span class="ln">38   </span></a>     * </span><span class="s3">@param </span><span class="s2">o L'observateur à retirer 
+<a name="l39"><span class="ln">39   </span></a>     * </span><span class="s3">@throws </span><span class="s2">IllegalArgumentException si o est null ou o n'est pas abonné à this 
+<a name="l40"><span class="ln">40   </span></a>     */</span><span class="s1"> 
+<a name="l41"><span class="ln">41   </span></a>    @Override 
+<a name="l42"><span class="ln">42   </span></a>    </span><span class="s0">public void </span><span class="s1">désabonner(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o) </span><span class="s0">throws </span><span class="s1">IllegalArgumentException { 
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s0">if </span><span class="s1">(!abonnés.contains(o)) { 
+<a name="l44"><span class="ln">44   </span></a>            </span><span class="s0">throw new </span><span class="s1">IllegalArgumentException(</span><span class="s4">&quot;o n'est pas abonné&quot;</span><span class="s1">); 
+<a name="l45"><span class="ln">45   </span></a>        } 
+<a name="l46"><span class="ln">46   </span></a>        abonnés.remove(o); 
+<a name="l47"><span class="ln">47   </span></a>    }<hr> 
+<a name="l48"><span class="ln">48   </span></a> 
+<a name="l49"><span class="ln">49   </span></a>    </span><span class="s2">/** 
+<a name="l50"><span class="ln">50   </span></a>     * Lit la valeur du sujet 
+<a name="l51"><span class="ln">51   </span></a>     * 
+<a name="l52"><span class="ln">52   </span></a>     * </span><span class="s3">@return </span><span class="s2">valeur du sujet 
+<a name="l53"><span class="ln">53   </span></a>     */</span><span class="s1"> 
+<a name="l54"><span class="ln">54   </span></a>    @Override 
+<a name="l55"><span class="ln">55   </span></a>    </span><span class="s0">public </span><span class="s1">T getValeur() { 
+<a name="l56"><span class="ln">56   </span></a>        </span><span class="s0">return </span><span class="s1">valeur; 
+<a name="l57"><span class="ln">57   </span></a>    }<hr> 
+<a name="l58"><span class="ln">58   </span></a> 
+<a name="l59"><span class="ln">59   </span></a>    </span><span class="s2">/** 
+<a name="l60"><span class="ln">60   </span></a>     * Indique si un observateur est abonné au sujet this 
+<a name="l61"><span class="ln">61   </span></a>     * 
+<a name="l62"><span class="ln">62   </span></a>     * </span><span class="s3">@param </span><span class="s2">o l'observateur à tester 
+<a name="l63"><span class="ln">63   </span></a>     * </span><span class="s3">@return </span><span class="s2">true ssi o est déjà abonné 
+<a name="l64"><span class="ln">64   </span></a>     * </span><span class="s3">@throws </span><span class="s2">IllegalArgumentException si o est null 
+<a name="l65"><span class="ln">65   </span></a>     */</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a>    @Override 
+<a name="l67"><span class="ln">67   </span></a>    </span><span class="s0">public boolean </span><span class="s1">estAbonné(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o) { 
+<a name="l68"><span class="ln">68   </span></a>        </span><span class="s0">if </span><span class="s1">(o == </span><span class="s0">null</span><span class="s1">) { 
+<a name="l69"><span class="ln">69   </span></a>            </span><span class="s0">throw new </span><span class="s1">IllegalArgumentException(</span><span class="s4">&quot;o est null&quot;</span><span class="s1">); 
+<a name="l70"><span class="ln">70   </span></a>        } 
+<a name="l71"><span class="ln">71   </span></a>        </span><span class="s0">return </span><span class="s1">abonnés.contains(o); 
+<a name="l72"><span class="ln">72   </span></a>    }<hr> 
+<a name="l73"><span class="ln">73   </span></a> 
+<a name="l74"><span class="ln">74   </span></a>    </span><span class="s2">/** 
+<a name="l75"><span class="ln">75   </span></a>     * Change la valeur du sujet 
+<a name="l76"><span class="ln">76   </span></a>     * 
+<a name="l77"><span class="ln">77   </span></a>     * </span><span class="s3">@param </span><span class="s2">v la nouvelle valeur du sujet 
+<a name="l78"><span class="ln">78   </span></a>     */</span><span class="s1"> 
+<a name="l79"><span class="ln">79   </span></a>    @Override 
+<a name="l80"><span class="ln">80   </span></a>    </span><span class="s0">public void </span><span class="s1">setValeur(T v) { 
+<a name="l81"><span class="ln">81   </span></a>        valeur = v; 
+<a name="l82"><span class="ln">82   </span></a>        notifierAbonnés(); 
+<a name="l83"><span class="ln">83   </span></a>    }<hr> 
+<a name="l84"><span class="ln">84   </span></a> 
+<a name="l85"><span class="ln">85   </span></a>    </span><span class="s0">private void </span><span class="s1">notifierAbonnés() { 
+<a name="l86"><span class="ln">86   </span></a>        </span><span class="s0">for </span><span class="s1">(<a href="Observateur.java.html">Observateur&lt;T&gt;</a> o : abonnés) { 
+<a name="l87"><span class="ln">87   </span></a>            o.faireMiseAJour(</span><span class="s0">this</span><span class="s1">); 
+<a name="l88"><span class="ln">88   </span></a>        } 
+<a name="l89"><span class="ln">89   </span></a>    } 
+<a name="l90"><span class="ln">90   </span></a>} 
+<a name="l91"><span class="ln">91   </span></a></span></pre>
+</body>
+</html>
