@@ -27,7 +27,7 @@ public class SandwichTest {
     // Test with a trivial amount of cheese
     @Test
     public void testFromCheeseTrivialAmountOfCheese() throws Exception {
-        Assert.assertEquals(50.0d, Sandwich.FromCheese(50.0d).getAmountOfCheeseInGrams(),1.0d-16);
+        Assert.assertEquals(50.0d, Sandwich.FromCheese(50.0d).getAmountOfCheeseInGrams(), 1.0d - 16);
 
     }
 
@@ -39,5 +39,13 @@ public class SandwichTest {
     @Test
     public void testFromCheeseNegativeAmountOfCheese() throws Exception {
         Assert.fail("unimplemented test case");
+    }
+
+    @Test
+    public void testCheeseHamBalance() throws Exception {
+        Sandwich newSandwich = Sandwich.FromHam(10);
+        Assert.assertEquals(10 * Sandwich.gramsOfCheesePerHamSlice,
+                newSandwich.getAmountOfCheeseInGrams(),1.0d-16);
+
     }
 }
