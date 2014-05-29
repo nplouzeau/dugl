@@ -7,8 +7,9 @@ package fr.istic.nplouzeau;
 /**
  * Illustrates the way to have factory operations (aka factory methods in EJ),
  * following rule EJ#1
+ *
  */
-public class Sandwich {
+public final class Sandwich {
 
     public final static double gramsOfCheesePerHamSlice = 20.0;
     private int numberOfHamSlices;
@@ -16,14 +17,15 @@ public class Sandwich {
 
 
     /**
-     * Creates a new fresh sandwich with ham slices and cheese
-     * The amount of cheese is computed by this method using a secret recipe
+     * Creates a new fresh sandwich by specifying the number of ham slices
+     * The amount of cheese is computed using a secret recipe
      *
      * @param numberOfHamSlices how many slices in the sandwich, must be > 0
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if numberOfHamSlices is <= 0
      */
-    static Sandwich FromHamAndCheese(int numberOfHamSlices) {
+    static Sandwich FromHam(int numberOfHamSlices) {
+        // Preconditions checks
         if(numberOfHamSlices <= 0) { throw new IllegalArgumentException("numberOfHamSlices <= 0");}
         Sandwich newSandwich = new Sandwich();
         newSandwich.numberOfHamSlices = numberOfHamSlices;
@@ -31,8 +33,27 @@ public class Sandwich {
         return newSandwich;
     }
 
+    /**
+     * Creates a fresh sandwich by specifying the amount of cheese
+     * The number of ham slices is computed using a secret recipe
+     * @param amountOfCheeseInGrams    how much cheese to put in sandwich, must be > 0.0
+     * @return a fresh sandwich
+     * @throws java.lang.IllegalArgumentException if amountOfCheeseInGrams is <= 0.0
+     */
+    static Sandwich FromCheese(double amountOfCheeseInGrams) {
+        // Preconditions checks
+        if (amountOfCheeseInGrams <= 0.0) { throw new IllegalArgumentException("amountOfCheeseInGrams <= 0");}
+        Sandwich newSandwich = new Sandwich();
+        newSandwich.amountOfCheeseInGrams = amountOfCheeseInGrams;
+        newSandwich.numberOfHamSlices = (int) Math.floor(amountOfCheeseInGrams / gramsOfCheesePerHamSlice);
+        return newSandwich;
+    }
+
+    // Private constructor: prevents instantiation by third party code
     private Sandwich() {
-    }    // Prevents instantiation by third party code
+        assert gramsOfCheesePerHamSlice >= 0.0;
+    }
+
 
     public int getNumberOfHamSlices() {
         return numberOfHamSlices;
