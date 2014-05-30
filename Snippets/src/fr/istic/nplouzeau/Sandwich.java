@@ -11,7 +11,7 @@ package fr.istic.nplouzeau;
  */
 public final class Sandwich {
 
-    public final static double gramsOfCheesePerHamSlice = 20.0;
+    public final static double MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS = 20.0;
     private int numberOfHamSlices;
     private double amountOfCheeseInGrams;
 
@@ -24,12 +24,12 @@ public final class Sandwich {
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if numberOfHamSlices is <= 0
      */
-    static Sandwich FromHam(int numberOfHamSlices) {
+    static Sandwich NewFromHam(int numberOfHamSlices) {
         // Preconditions checks
         if(numberOfHamSlices <= 0) { throw new IllegalArgumentException("numberOfHamSlices <= 0");}
         Sandwich newSandwich = new Sandwich();
         newSandwich.numberOfHamSlices = numberOfHamSlices;
-        newSandwich.amountOfCheeseInGrams = gramsOfCheesePerHamSlice * numberOfHamSlices;
+        newSandwich.amountOfCheeseInGrams = MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS * numberOfHamSlices;
         return newSandwich;
     }
 
@@ -40,18 +40,25 @@ public final class Sandwich {
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if amountOfCheeseInGrams is <= 0.0
      */
-    static Sandwich FromCheese(double amountOfCheeseInGrams) {
+    static Sandwich NewFromCheese(double amountOfCheeseInGrams) {
         // Preconditions checks
         if (amountOfCheeseInGrams <= 0.0) { throw new IllegalArgumentException("amountOfCheeseInGrams <= 0");}
         Sandwich newSandwich = new Sandwich();
         newSandwich.amountOfCheeseInGrams = amountOfCheeseInGrams;
-        newSandwich.numberOfHamSlices = (int) Math.floor(amountOfCheeseInGrams / gramsOfCheesePerHamSlice);
+        newSandwich.numberOfHamSlices = (int) Math.floor(amountOfCheeseInGrams / MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS);
         return newSandwich;
+    }
+
+    static Sandwich Duplicate(Sandwich original) {
+        Sandwich duplicata = new Sandwich();
+        duplicata.numberOfHamSlices = original.numberOfHamSlices;
+        duplicata.amountOfCheeseInGrams = original.amountOfCheeseInGrams;
+        return duplicata;
     }
 
     // Private constructor: prevents instantiation by third party code
     private Sandwich() {
-        assert gramsOfCheesePerHamSlice >= 0.0;
+        assert MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS >= 0.0;
     }
 
 

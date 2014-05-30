@@ -8,32 +8,32 @@ public class SandwichTest {
     // Test with one slice of ham
     @Test
     public void testFromHamOneSlice() throws Exception {
-        Assert.assertEquals(1, Sandwich.FromHam(1).getNumberOfHamSlices());
+        Assert.assertEquals(1, Sandwich.NewFromHam(1).getNumberOfHamSlices());
 
     }
 
     // No slice of ham
     @Test(expected = IllegalArgumentException.class)
     public void testFromHamNullSliceNumber() throws Exception {
-        Sandwich badSandwich = Sandwich.FromHam(0);
+        Sandwich badSandwich = Sandwich.NewFromHam(0);
     }
 
     // Negative number of ham slices
     @Test(expected = IllegalArgumentException.class)
     public void testFromHamNegativeNumberOfSlices() throws Exception {
-        Sandwich badSandwich = Sandwich.FromHam(-1);
+        Sandwich badSandwich = Sandwich.NewFromHam(-1);
     }
 
     // Test with a trivial amount of cheese
     @Test
     public void testFromCheeseTrivialAmountOfCheese() throws Exception {
-        Assert.assertEquals(50.0d, Sandwich.FromCheese(50.0d).getAmountOfCheeseInGrams(), 1.0d - 16);
+        Assert.assertEquals(50.0d, Sandwich.NewFromCheese(50.0d).getAmountOfCheeseInGrams(), 1.0d - 16);
 
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testFromCheeseNullAmountOfCheese() throws Exception {
-        Sandwich badSandwich = Sandwich.FromCheese(0.0d);
+        Sandwich badSandwich = Sandwich.NewFromCheese(0.0d);
     }
 
     @Test
@@ -43,9 +43,20 @@ public class SandwichTest {
 
     @Test
     public void testCheeseHamBalance() throws Exception {
-        Sandwich newSandwich = Sandwich.FromHam(10);
-        Assert.assertEquals(10 * Sandwich.gramsOfCheesePerHamSlice,
+        Sandwich newSandwich = Sandwich.NewFromHam(10);
+        Assert.assertEquals(10 * Sandwich.MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS,
                 newSandwich.getAmountOfCheeseInGrams(),1.0d-16);
 
     }
+
+    @Test
+    public void testDuplicate() throws Exception {
+        Sandwich original = Sandwich.NewFromHam(1);
+        Sandwich duplicate = Sandwich.Duplicate(original);
+
+        Assert.assertNotSame(original,duplicate);
+        Assert.assertEquals(original.getAmountOfCheeseInGrams(),duplicate.getAmountOfCheeseInGrams(),1.0d-16);
+        Assert.assertEquals(original.getNumberOfHamSlices(),duplicate.getNumberOfHamSlices());
+    }
 }
+
