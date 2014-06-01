@@ -9,5 +9,26 @@ package fr.istic.nplouzeau.simplecommands;
  */
 public class GreetingsConfigurator {
 
-      private Greeting
+    private GreetingsInvoker invoker;
+    private GreetingsReceiver receiver;
+
+    public static void main(String lineArgs[]) {
+
+        GreetingsConfigurator client = new GreetingsConfigurator();
+        client.run();
+
+    }
+
+    private void run() {
+        invoker = new GreetingsInvoker();
+        receiver = new GreetingsReceiver();
+        configureCommands();
+        invoker.runInvokerLoop();
+    }
+
+    private void configureCommands() {
+
+        invoker.addCommand("Quit",new QuitCmd(invoker));
+        invoker.addCommand("Hello",new HelloCmd(receiver));
+    }
 }
