@@ -8,11 +8,12 @@ package fr.istic.nplouzeau;
  * Illustrates the way to have factory operations (aka factory methods in EJ),
  * following rule EJ#1
  */
-public final class Sandwich {
+public final class Sandwich implements Meal {
 
     public final static double MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS = 20.0;
     private int numberOfHamSlices;
     private double amountOfCheeseInGrams;
+    private final double pricePerHamSliceInEuros = 1.0;
 
 
     /**
@@ -80,6 +81,22 @@ public final class Sandwich {
 
     public double getAmountOfCheeseInGrams() {
         return amountOfCheeseInGrams;
+    }
+
+    @Override
+    public double getCaloricValueInJoules() {
+
+        double caloricValuePerHamSliceInJoules = 250.0;
+        double caloricValuePerCheeseGramInJoules = 4.6;
+
+        return numberOfHamSlices * caloricValuePerHamSliceInJoules
+                + amountOfCheeseInGrams * caloricValuePerCheeseGramInJoules;
+    }
+
+    @Override
+    public double getPriceInEuros() {
+
+        return pricePerHamSliceInEuros * numberOfHamSlices;
     }
 }
 
