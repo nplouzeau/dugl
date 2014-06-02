@@ -7,7 +7,6 @@ package fr.istic.nplouzeau;
 /**
  * Illustrates the way to have factory operations (aka factory methods in EJ),
  * following rule EJ#1
- *
  */
 public final class Sandwich {
 
@@ -26,26 +25,33 @@ public final class Sandwich {
      */
     static Sandwich NewFromHam(int numberOfHamSlices) {
         // Preconditions checks
-        if(numberOfHamSlices <= 0) { throw new IllegalArgumentException("numberOfHamSlices <= 0");}
+        if (numberOfHamSlices <= 0) {
+            throw new IllegalArgumentException("numberOfHamSlices <= 0");
+        }
         Sandwich newSandwich = new Sandwich();
         newSandwich.numberOfHamSlices = numberOfHamSlices;
         newSandwich.amountOfCheeseInGrams = MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS * numberOfHamSlices;
+        newSandwich.checkInvariants();
         return newSandwich;
     }
 
     /**
      * Creates a fresh sandwich by specifying the amount of cheese
      * The number of ham slices is computed using a secret recipe
-     * @param amountOfCheeseInGrams    how much cheese to put in sandwich, must be > 0.0
+     *
+     * @param amountOfCheeseInGrams how much cheese to put in sandwich, must be > 0.0
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if amountOfCheeseInGrams is <= 0.0
      */
     static Sandwich NewFromCheese(double amountOfCheeseInGrams) {
         // Preconditions checks
-        if (amountOfCheeseInGrams <= 0.0) { throw new IllegalArgumentException("amountOfCheeseInGrams <= 0");}
+        if (amountOfCheeseInGrams <= 0.0) {
+            throw new IllegalArgumentException("amountOfCheeseInGrams <= 0");
+        }
         Sandwich newSandwich = new Sandwich();
         newSandwich.amountOfCheeseInGrams = amountOfCheeseInGrams;
-        newSandwich.numberOfHamSlices = (int) Math.floor(amountOfCheeseInGrams / MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS);
+        newSandwich.numberOfHamSlices = (int) Math.ceil(amountOfCheeseInGrams / MASS_OF_CHEESE_PER_HAM_SLICE_IN_GRAMS);
+        newSandwich.checkInvariants();
         return newSandwich;
     }
 
@@ -62,6 +68,12 @@ public final class Sandwich {
     }
 
 
+    // To be called upon state changes
+    private void checkInvariants() {
+        assert numberOfHamSlices > 0;
+        assert amountOfCheeseInGrams > 0.0;
+    }
+
     public int getNumberOfHamSlices() {
         return numberOfHamSlices;
     }
@@ -70,3 +82,4 @@ public final class Sandwich {
         return amountOfCheeseInGrams;
     }
 }
+
