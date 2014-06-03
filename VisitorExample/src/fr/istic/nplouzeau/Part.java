@@ -5,11 +5,4 @@ package fr.istic.nplouzeau;
  */
 public interface Part {
     public void accept(Visitor visitor);
-
-    /**
-     * Return the amount of power need by a part.
-     * Negative values mean that this part actually produces power.
-     * @return
-     */
-    public double getPowerRequirementsInWatts();
 }
