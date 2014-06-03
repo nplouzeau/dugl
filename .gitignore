@@ -1,5 +1,11 @@
-.idea/*
-out
+.idea/
 *.class
 *.iml
+*.iws
 *.jar
+.DS_Store
+.classpath
+.project
+.settings/
+log/
+target/
