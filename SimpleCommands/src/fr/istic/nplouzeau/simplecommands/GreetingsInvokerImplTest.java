@@ -7,13 +7,13 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.logging.Logger;
 
-public class GreetingsInvokerTest {
+public class GreetingsInvokerImplTest {
 
 
     @Test
     public void testInvoker() throws Exception {
 
-        GreetingsInvoker invoker = new GreetingsInvoker();
+        GreetingsInvokerImpl invoker = new GreetingsInvokerImpl();
 
         Command mockCmd = Mockito.mock(Command.class);
 

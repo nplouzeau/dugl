@@ -4,9 +4,9 @@ package fr.istic.nplouzeau.simplecommands;
  * Created by plouzeau on 2014-06-01.
  */
 public class QuitCmd implements Command {
-    private final GreetingsInvoker receiver;
+    private final GreetingsInvokerImpl receiver;
 
-    public QuitCmd(GreetingsInvoker receiver) {
+    public QuitCmd(GreetingsInvokerImpl receiver) {
         this.receiver = receiver;
     }
     @Override

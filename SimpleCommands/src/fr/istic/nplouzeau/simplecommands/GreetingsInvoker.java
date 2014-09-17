@@ -1,69 +1,37 @@
 package fr.istic.nplouzeau.simplecommands;
 
-/**
- * Created by plouzeau on 2014-06-01.
- */
-
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
 
 /**
- * A simple example of invoker for the Command design pattern.
+ * Created by plouzeau on 2014-09-17.
  */
-public class GreetingsInvoker {
-    private HashMap<String, Command> commands = new HashMap<>();
-    private boolean stopLoop = false;
-    private InputStream inputStream;
-    private BufferedReader bufferedReader;
+public interface GreetingsInvoker {
+    /**
+     * Starts the reading of the read stream set by setReadStream operation
+     */
+    public void runInvokerLoop();
 
-    public void runInvokerLoop() {
-        while (!stopLoop) {
-            String userInput = null;
-            try {
-                userInput = readUserInput();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if(userInput == null) {
-                stopLoop = true;
-            }
-            Command cmdToExecute = commands.get(userInput);
-            if (cmdToExecute != null) {
-                cmdToExecute.execute();
-            }
-        }
-    }
+    /**
+     * Stops the read stream loop now.
+     */
+    public void stopLoop();
 
-    public void stopLoop() {
-        stopLoop = true;
-    }
+    /**
+     * Sets the read stream that be be used by runInvokerLoop
+     *
+     * @param inputStream the read stream
+     * @throws IllegalArgumentException if inputStream is null
+     */
+    public void setReadStream(InputStream inputStream);
 
-    private String readUserInput() throws IOException {
-        return bufferedReader.readLine();
-    }
 
     /**
      * Registers a new keyword/command pair
      *
      * @param keyword a non-null String
      * @param cmd     a non-null Command reference
-     * @throws java.lang.IllegalArgumentException
+     * @throws java.lang.IllegalArgumentException for null parameters
      */
-    public void addCommand(String keyword, Command cmd) {
-        if ((keyword == null) || (cmd == null)) {
-            throw new IllegalArgumentException("null parameter");
-        }
-        commands.put(keyword,cmd);
-    }
+    public void addCommand(String keyword, Command cmd);
 
-    public void setReadStream(InputStream inputStream) {
-        if(inputStream == null) {
-            throw new IllegalArgumentException("null inputStream");
-        }
-        this.inputStream = inputStream;
-        this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-    }
 }
