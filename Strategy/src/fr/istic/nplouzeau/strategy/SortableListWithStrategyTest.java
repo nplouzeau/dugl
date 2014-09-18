@@ -3,6 +3,8 @@ package fr.istic.nplouzeau.strategy;
 import org.junit.Assert;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SortableListWithStrategyTest {
@@ -11,10 +13,13 @@ public class SortableListWithStrategyTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        List<Integer> contents = Arrays.asList(20,8,30);  // Non sorted list of value
+        List<Integer> contents = Arrays.asList(20,8,30,-2,-10);  // Non sorted list of value
         testList = new SortableListWithStrategy(contents);
-        // We use a broken strategy, to check testSort
-        ((SortableListWithStrategy)testList).setStrategy(unsortedList -> unsortedList);
+        ((SortableListWithStrategy)testList).setStrategy(unsortedList -> {
+            List<Integer> sortedList = new LinkedList<>(unsortedList);
+            Collections.sort(sortedList);
+            return sortedList;
+        });
 
     }
 
