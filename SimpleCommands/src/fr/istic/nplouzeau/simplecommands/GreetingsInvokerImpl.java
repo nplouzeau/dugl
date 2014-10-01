@@ -30,6 +30,7 @@ public class GreetingsInvokerImpl implements GreetingsInvoker{
             }
             if(userInput == null) {
                 stopLoop = true;
+                break;
             }
             Command cmdToExecute = commands.get(userInput);
             if (cmdToExecute != null) {
