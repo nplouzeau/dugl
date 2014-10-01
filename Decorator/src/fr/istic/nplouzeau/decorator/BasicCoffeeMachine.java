@@ -1,5 +1,7 @@
 package fr.istic.nplouzeau.decorator;
 
+import java.util.logging.Logger;
+
 /**
  * Created by plouzeau on 2014-09-17.
  */
@@ -22,6 +24,6 @@ public class BasicCoffeeMachine implements CoffeeMachine {
      */
     @Override
     public void pourCoffee(Cup cup) {
-           // TODO
+        Logger.getGlobal().severe("Internal machine jam");
     }
 }
