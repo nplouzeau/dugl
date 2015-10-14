@@ -26,6 +26,9 @@ public class SubjectImpl<T> implements Subject<T> {
      */
 	@Override
 	public void register(Observer<T> o) throws IllegalArgumentException {
+		if (o == null) {
+			throw new IllegalArgumentException("o is null");
+		}
 		if (registeredObservers.contains(o)) {
 			throw new IllegalArgumentException("o is registered already");
 		}
@@ -40,6 +43,9 @@ public class SubjectImpl<T> implements Subject<T> {
      */
 	@Override
 	public void unregister(Observer<T> o) throws IllegalArgumentException {
+		if (o == null) {
+			throw new IllegalArgumentException("o is null");
+		}
 		if (!registeredObservers.contains(o)) {
 			throw new IllegalArgumentException("o is not registered");
 		}
