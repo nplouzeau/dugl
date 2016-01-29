@@ -12,7 +12,7 @@ public final class Pizza implements Meal {
 
     private Pizza() {}
 
-    static Pizza NewPizza(double sideLengthInMeters) {
+    static Pizza CreatePizza(double sideLengthInMeters) {
         Pizza newPizza = new Pizza();
         newPizza.sideLengthInMeters = sideLengthInMeters;
         return newPizza;

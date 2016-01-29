@@ -23,6 +23,6 @@ public class MariosParadise implements Restaurant {
         double sideLengthOfPizzaInMeters =
                 Math.sqrt(minimalCaloricValueInJoules / Pizza.caloricValuePerSquareMeterInJoules);
 
-        return Pizza.NewPizza(sideLengthOfPizzaInMeters);
+        return Pizza.CreatePizza(sideLengthOfPizzaInMeters);
     }
 }

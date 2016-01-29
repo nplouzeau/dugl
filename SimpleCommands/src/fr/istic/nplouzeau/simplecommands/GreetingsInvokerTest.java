@@ -13,7 +13,7 @@ public class GreetingsInvokerImplTest {
     @Test
     public void testInvoker() throws Exception {
 
-        GreetingsInvokerImpl invoker = new GreetingsInvokerImpl();
+        GreetingsInvoker invoker = new GreetingsInvokerImpl();
 
         Command mockCmd = Mockito.mock(Command.class);
 

@@ -18,7 +18,7 @@ public class EatAtJoes implements Restaurant {
             throw new IllegalArgumentException("minimalCaloricValueInJoules <= 0.0");
         }
         final double lotsOfCalories = 10.0;
-        Meal newMeal = Sandwich.NewFromCheese(minimalCaloricValueInJoules*lotsOfCalories);
+        Meal newMeal = Sandwich.CreateFromCheese(minimalCaloricValueInJoules * lotsOfCalories);
         assert newMeal.getCaloricValueInJoules() >= minimalCaloricValueInJoules;
         return newMeal;
     }

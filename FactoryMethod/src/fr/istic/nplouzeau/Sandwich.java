@@ -24,7 +24,7 @@ public final class Sandwich implements Meal {
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if numberOfHamSlices is <= 0
      */
-    static Sandwich NewFromHam(int numberOfHamSlices) {
+    static Sandwich CreateFromHam(int numberOfHamSlices) {
         // Preconditions checks
         if (numberOfHamSlices <= 0) {
             throw new IllegalArgumentException("numberOfHamSlices <= 0");
@@ -44,7 +44,7 @@ public final class Sandwich implements Meal {
      * @return a fresh sandwich
      * @throws java.lang.IllegalArgumentException if amountOfCheeseInGrams is <= 0.0
      */
-    static Sandwich NewFromCheese(double amountOfCheeseInGrams) {
+    static Sandwich CreateFromCheese(double amountOfCheeseInGrams) {
         // Preconditions checks
         if (amountOfCheeseInGrams <= 0.0) {
             throw new IllegalArgumentException("amountOfCheeseInGrams <= 0");
